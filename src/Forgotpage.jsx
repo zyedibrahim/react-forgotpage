@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";
 import * as yup from "yup";
+import { API } from "./global";
 
 const formvalidationschema = yup.object({
   email: yup.string().email("email field required").required(),
@@ -20,7 +21,7 @@ export function Forgotpage() {
     onSubmit: (values) => {
       console.log(values);
       // notify();
-      fetch("http://localhost:4000/users/forgot-password", {
+      fetch(`${API}{/users/forgot-password`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
